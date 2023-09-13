@@ -1,0 +1,75 @@
+:root {
+  --primary: #0dba8a;
+  --text-white: #ffffff;
+  --text-black: #092e24;
+  --bg-grey: #f0f0f0;
+  --bg-secondary: #dcf6ef;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-wrapper {
+  width: 16rem;
+  background-color: var(--text-white);
+  padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+}
+
+.content-sidebar{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-wrapper .logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-wrapper .logo h2 {
+  font-family: Poppins;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+.card-sidebar {
+  background-color: var(--text-white);
+  border-radius: 8px;
+  padding: 10px 16px 10px 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.card-sidebar p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--primary);
+  margin-left: 8px;
+}
+.card-sidebar svg{
+    fill: var(--primary);
+}
+
+.card-sidebar.active-sidebar{
+    background-color: var(--primary);
+}
+.card-sidebar.active-sidebar p{
+    color: var(--text-white);
+}
+.card-sidebar.active-sidebar svg{
+    fill: var(--text-white);
+}
