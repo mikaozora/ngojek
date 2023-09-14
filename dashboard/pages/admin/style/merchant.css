@@ -69,6 +69,7 @@ body {
   border-radius: 0.5rem;
 }
 
+
 table tbody tr th button{
   border: none;
   background-color: var(--text-white);
@@ -149,4 +150,28 @@ table tbody tr th{
 
 .modal-right .right{
   width: 100%;
+}
+
+.wrap-bottom{
+  display: flex;
+  justify-content: right;
+}
+
+.wrap-bottom a{
+  text-decoration: none;
+}
+
+.wrap-bottom a .arrow-btn{
+  background-color: var(--primary);
+  border-radius: .5rem;
+  border: none;
+  padding: .3rem .3rem;
+}
+
+.wrap-bottom a .arrow-btn:hover{
+  background-color: #0ca076; 
+}
+
+.wrap-bottom a .arrow-btn.right-btn{
+  margin-left: .5rem;
 }
