@@ -103,6 +103,7 @@
     border-radius: 0.5rem;
     border: none;
   }
+
   .btn.btn-primary:hover{
     background-color: #0ca076;
   }
@@ -174,4 +175,36 @@
   
   .wrap-bottom a .arrow-btn.right-btn{
     margin-left: .5rem;
+  }
+
+  .wrap-tab{
+    display: flex;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+  }
+
+  .wrap-tab button a{
+    text-decoration: none;
+    color: var(--text-white);
+  }
+  
+  .wrap-tab button a.off{
+    text-decoration: none;
+    color: var(--primary);
+  }
+
+  .mr-1{
+    margin-right: .5rem;
+  }
+
+  .pd-tab{
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .btn.btn-primary.off{
+    background-color: var(--bg-secondary);
+    color: var(--primary);
+    border-radius: 0.5rem;
+    border: none;
   }
