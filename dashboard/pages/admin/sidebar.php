@@ -42,7 +42,7 @@ $page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 
                     </svg>
                     <p>Driver</p>
                 </a>
-                <a href="transaction.php" class="card-sidebar <?= $page == "transaction.php" ? "active-sidebar" : ""; ?>">
+                <a href="transaction.php?history=ride" class="card-sidebar <?= $page == "transaction.php" ? "active-sidebar" : ""; ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <mask id="mask0_261_301" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="0" width="16" height="20">
                             <path d="M15.4167 3.33301H4.58333C4.1231 3.33301 3.75 3.7061 3.75 4.16634V17.4997C3.75 17.9599 4.1231 18.333 4.58333 18.333H15.4167C15.8769 18.333 16.25 17.9599 16.25 17.4997V4.16634C16.25 3.7061 15.8769 3.33301 15.4167 3.33301Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round" />
