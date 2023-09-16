@@ -47,7 +47,7 @@
             <div class="history">
                 <div class="title">
                     <h1>Transaction History</h1>
-                    <span>See all</span>
+                    <span><a href="history.php?history=ride">See all</a></span>
                 </div>
                 <div class="display-history">
                     <div class="display-history-line">
