@@ -13,7 +13,7 @@
     <div class="kontainer">
         <div class="device">
             <div class="header">    
-                <img src="../assets/close.png" alt="">
+                <a href="../pages/home.php"><img src="../assets/close.png" alt=""></a>
                 <span>Sent</span>
             </div>
             <div class="input-kontainer">
