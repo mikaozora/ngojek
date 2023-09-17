@@ -70,6 +70,11 @@ if (isset($_POST["login"])) {
                 $cookieTime = time() + (60 * 60 * 24);
                 setcookie($cookieName, $cookieValue, $cookieTime, "/");
 
+                $cookieName = "cookie_merchant_type";
+                $cookieValue = $row["merchant_type"];
+                $cookieTime = time() + (60 * 60 * 24);
+                setcookie($cookieName, $cookieValue, $cookieTime, "/");
+
                 header("location: ../pages/seller/home.php");
             }
         } else {
