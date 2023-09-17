@@ -1,3 +1,8 @@
+<?php 
+include('../customer/action/login.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +21,9 @@
     <div class="kontainer">
         <div class="device">
             <div class="logo">
-                <h1>Ngojek.</h1>
+                <h1>Ngojek.</h1>    
             </div>
-            <form class="form" action="action/login.php" method="post">
+            <form class="form" action="../customer/action/login.php" method="post">
                 <h2>Sign In</h2>
                 <div class="form-input">
                     <label for="username">Username</label>

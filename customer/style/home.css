@@ -28,6 +28,7 @@ body {
 
 .header {
     display: flex;
+    justify-content: space-between;
     padding: 24px 32px 24px 32px;
 }
 
@@ -58,7 +59,8 @@ body {
     height: 48px;
     border-radius: 50%;
     background: url(../assets/profile.svg) no-repeat center;
-    background-size: cover;
+    background: cover;
+    background-size: 48px;
 }
 
 .menu {
