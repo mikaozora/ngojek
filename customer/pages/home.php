@@ -46,7 +46,7 @@
                     <span>Mart</span>
                 </div>
                 <div class="item">
-                    <a href="sent.php"><img src="../assets/sent.svg" alt=""></a>
+                    <a href="goods.php"><img src="../assets/sent.svg" alt=""></a>
                     <span>Sent</span>
                 </div>
                 <div class="item">

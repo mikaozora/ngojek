@@ -28,7 +28,7 @@ body {
 
 .header{
     padding: 24px 32px 24px 32px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .header span{
@@ -45,7 +45,7 @@ body {
 .data{
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     width: 300px;
 }
 

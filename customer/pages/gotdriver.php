@@ -1,3 +1,14 @@
+<?php
+include("../../Database/connection.php");
+    $arraydriver = array();
+    $randdriver = "SELECT * FROM driver";
+    $sql_driver = mysqli_query($conn, $randdriver);
+    while($res_driver = mysqli_fetch_assoc($sql_driver)){
+        array_push($arraydriver, $res_driver);
+    }
+
+    $randNum = rand(0, sizeof($arraydriver) - 1);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,19 +31,22 @@
                 <form action="../action/sent.php" method="post">
                     <div class="data">
                         <label for="">Name</label>
-                        <input type="text" disabled>
+                        <input type="text" disabled value="<?= $arraydriver[$randNum]["name"] ?>">
                     </div>
                     <div class="data">
                         <label for="">Number Plate</label>
-                        <input type="text" disabled>
+                        <input type="text" disabled value="<?= $arraydriver[$randNum]["number_plate"] ?>">
                     </div>
                     <div class="data">
                         <label for="">Vehicle</label>
-                        <input type="text" disabled>
+                        <input type="text" disabled value="<?= $arraydriver[$randNum]["vehicle"] ?>">
                     </div>
                     <div class="data">
                         <label for="">Gender</label>
-                        <input type="text" disabled>
+                        <input type="text" disabled value="<?= $arraydriver[$randNum]["gender"] ?>">
+                    </div>
+                    <div class="data">
+                        <input type="hidden" name="driverid" value="<?= $arraydriver[$randNum]["driver_id"] ?>">
                     </div>
                     <div class="btn-kontainer">
                         <button type="submit" class="finish-btn" name="submit">Finish Transaction</button>
