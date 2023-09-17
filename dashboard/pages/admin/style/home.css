@@ -1,34 +1,53 @@
 :root {
-    --primary: #0dba8a;
-    --text-white: #ffffff;
-    --text-black: #092e24;
-    --bg-grey: #f0f0f0;
-    --bg-secondary: #dcf6ef;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-  }
+  --primary: #0dba8a;
+  --text-white: #ffffff;
+  --text-black: #092e24;
+  --bg-grey: #f0f0f0;
+  --bg-secondary: #dcf6ef;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.kontainer {
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg-grey);
+  height: 100%;
+}
 
   ul{
     list-style-type: none;
   }
   
-  .containerAll{
-      display: flex;
-      background-color: var(--bg-grey);
-  }
-
   h1, span, h4, h2{
     font-size: 2rem;
+    
+  }
+
+  h1, span, h4, h2, h3{
+    font-family: 'poppins';
   }
 
   /* ==================style kesimpulan total pengguna gojek================= */
 
   .containContentv{
     padding: 2%;
-    
+    padding-left: 340px;
   }
 
   .containContentv{
