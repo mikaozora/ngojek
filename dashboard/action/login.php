@@ -70,6 +70,7 @@ if (isset($_POST["login"])) {
                 $cookieTime = time() + (60 * 60 * 24);
                 setcookie($cookieName, $cookieValue, $cookieTime, "/");
 
+
                 $cookieName = "cookie_merchant_id";
                 $cookieValue = $row["merchant_id"];
                 $cookieTime = time() + (60 * 60 * 24);

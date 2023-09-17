@@ -11,8 +11,72 @@ body {
   padding: 0;
 }
 
-.container{
+ul{
+  list-style-type: none;
+}
+
+.containerAll{
     display: flex;
-    height: 100vh;
     background-color: var(--bg-grey);
 }
+
+h1, span, h4, h2{
+  font-size: 2rem;
+}
+
+/* ==================style kesimpulan total pengguna gojek================= */
+
+.containContentv{
+  padding: 2%
+}
+
+.containContentv{
+  width: 100%;
+}
+
+.countSummaryv{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  width: 99.8%;
+  margin: 3% 0;
+}
+
+.cardCountv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: #ffffff;
+  width: 21%;
+  padding: 1%;
+  border-radius: 5%;
+  
+}
+
+.cardCountv > *{
+  margin: 2% 3%;
+}
+
+.cardCountv > span{
+  font-size: 0.9rem;
+}
+
+.cardCountv > h4{
+  
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.cardCountv > img{
+  width: 20%;
+}
+
+/* ============================================================================ */
+
+.lcontain{
+  border-radius: 5%;
+}
+
+
+
+
