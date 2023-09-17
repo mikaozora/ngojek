@@ -17,12 +17,13 @@ $rowPerPage = 5;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/home.css">
     <title>Home</title>
 </head>
 
 <body>
-    <div class="containerAll">
+    <div class="kontainer">
         <?php include("sidebar.php"); ?>
         <div class="containContentv">
             <h1>Welcome, Admin</h1>
@@ -114,7 +115,7 @@ $rowPerPage = 5;
             <!------------------------------------ Latest Subscribers & Revenues Container -------------------------------------------->
             <div class="d-flex justify-content-between mt-5">
                 <!-------------------- latest subscribers ---------------------->
-                <div class="bg-white p-4 rounded" style="width: 48%;">
+                <div class="bg-white p-4 rounded" style="width: 44%;">
                     <h2>
                         Latest Subscribers
                     </h2>
@@ -147,7 +148,7 @@ $rowPerPage = 5;
                     </table>
                 </div>
                 <!----------------------- revenues ------------------------------>
-                <div class="bg-white rounded p-3" style="width: 48%;">
+                <div class="bg-white rounded p-3" style="width: 44%;">
                     <h2 class="align-self-start">
                         Revenues
                     </h2>
