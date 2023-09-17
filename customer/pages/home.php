@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    
+    if(!isset($_SESSION["session_username"])){
+        header("location: ../index.php");
+        exit();
+    }
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +32,7 @@
             <div class="header">
                 <div class="left-side">
                     <h1>Ngojek.</h1>
-                    <span>Hello, Jason👋</span>
+                    <span>Hello, <?php echo $_COOKIE["cookie_name"]?>👋</span>
                 </div>
                 <a href="profile.php"><div class="avatar">
                 </div></a>
