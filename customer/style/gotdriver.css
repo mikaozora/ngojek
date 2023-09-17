@@ -29,24 +29,26 @@ body {
 .header{
     padding: 24px 32px 24px 32px;
     margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .header span{
-    padding-top: 10px;
-    padding-left: 15px;
     font-family: "poppins";
+    font-weight: bold;
+    color: var(--primary);
 }
 
 .input-kontainer{
     display: flex;
     justify-content: center;
+    height: 50vh;
 }
 
 .data{
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
-    width: 300px;
 }
 
 .data label{
@@ -63,7 +65,14 @@ body {
     background-color: var(--bg-grey);
 }
 
-.submit-btn{
+.btn-kontainer{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-top: 200px;
+}
+
+.finish-btn{
     font-family: "poppins";
     width: 300px;
     border-radius: 8px;
@@ -72,12 +81,4 @@ body {
     color: var(--text-white);
     height: 37px;
     margin-top: 30px;
-}
-
-.data textarea{
-    background-color: var(--bg-grey);
-    border-radius: 8px;
-    padding-left: 12px;
-    border: none;
-    resize: none;
 }
