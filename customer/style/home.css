@@ -24,12 +24,14 @@ body {
     width: 375px;
     height: 100vh;
     background-color: var(--text-white);
+    padding: 1.5rem;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 24px 32px 24px 32px;
+    /* padding: 24px 0px 24px 0px; */
+    margin-bottom: 1rem;
 }
 
 .left-side {
@@ -65,8 +67,10 @@ body {
 
 .menu {
     display: flex;
-    padding: 20px 32px 20px 32px;
+    /* padding: 20px 0px 20px 0px; */
     justify-content: space-between;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .item {
@@ -84,7 +88,12 @@ body {
 }
 
 .banner {
-    padding: 16px 32px 16px 32px;
+    /* padding: 16px 0px 16px 0px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
 }
 
 .banner img {
@@ -93,7 +102,7 @@ body {
 }
 
 .history {
-    padding: 16px 32px 12px 32px;
+    /* padding: 16px 0px 12px 0px; */
 }
 
 .title {
@@ -119,7 +128,7 @@ body {
 }
 
 .table {
-    padding: 20px 32px 12px 32px;
+    padding: 20px 0px 12px 0px;
     ;
 }
 

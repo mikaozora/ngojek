@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="banner">
-                <img src="../assets/banner.png" alt="">
+                <a href="subscription.php?type=SID01"><img src="../assets/banner.png" alt=""></a>                
             </div>
             <div class="history">
                 <div class="title">
