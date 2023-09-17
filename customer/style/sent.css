@@ -1,0 +1,83 @@
+:root {
+    --primary: #0dba8a;
+    --text-white: #ffffff;
+    --text-black: #092e24;
+    --bg-grey: #f0f0f0;
+    --bg-secondary: #dcf6ef;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.kontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-grey);
+}
+
+.device {
+    width: 375px;
+    height: 100vh;
+    background-color: var(--text-white);
+}
+
+.header{
+    padding: 24px 32px 24px 32px;
+    margin-bottom: 12px;
+}
+
+.header span{
+    padding-top: 10px;
+    padding-left: 15px;
+    font-family: "poppins";
+}
+
+.input-kontainer{
+    display: flex;
+    justify-content: center;
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+.data label{
+    font-family: "poppins";
+    font-weight: 400;
+}
+
+.data input{
+    font-family: "poppins";
+    padding-left: 12px;
+    border-radius: 8px;
+    border: none;
+    height: 35px;
+    background-color: var(--bg-grey);
+}
+
+.submit-btn{
+    font-family: "poppins";
+    width: 300px;
+    border-radius: 8px;
+    background-color: var(--primary);
+    border: none;  
+    color: var(--text-white);
+    height: 37px;
+    margin-top: 30px;
+}
+
+.data textarea{
+    background-color: var(--bg-grey);
+    border-radius: 8px;
+    padding-left: 12px;
+    border: none;
+    resize: none;
+}
