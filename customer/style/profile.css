@@ -73,7 +73,7 @@ body {
     width: 125px;
     margin-top: 16px;
     padding: 4px 20px 4px 20px;
-    background-color: var(--primary);
+    background-color: silver;
     border-radius: 8px;
     text-align: center;
     margin-bottom: 40px;
@@ -89,7 +89,7 @@ body {
     width: 125px;
     margin-top: 16px;
     padding: 4px 20px 4px 20px;
-    background-color: var(--primary);
+    background-color: magenta;
     border-radius: 8px;
     text-align: center;
     margin-bottom: 40px;

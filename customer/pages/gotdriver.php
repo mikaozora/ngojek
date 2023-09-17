@@ -25,7 +25,7 @@ include("../../Database/connection.php");
         <div class="device">    
             <div class="header">
                 <span>We've Got Your Driver</span>
-                <img src="../assets/helmet.png" alt="">
+                <a href="../pages/home.php"><img src="../assets/helmet.png" alt=""></a>
             </div>
             <div class="input-kontainer">
                 <form action="../action/sent.php" method="post">
