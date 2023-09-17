@@ -25,7 +25,7 @@ body {
   height: 100vh;
   background-color: var(--text-white);
   padding: 1.5rem;
-  font-family: 'poppins';
+  font-family: "poppins";
 }
 
 .wrap-header {
@@ -53,11 +53,11 @@ body {
   color: var(--primary);
 }
 
-.wrap-content{
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.wrap-content {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .wrap-description {
@@ -68,13 +68,13 @@ body {
   height: 100%;
 }
 
-.wrap-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.wrap-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.wrap-footer h5{
-    margin-bottom: 0px;
+.wrap-footer h5 {
+  margin-bottom: 0px;
 }
 
 .btn.btn-primary {
@@ -86,14 +86,15 @@ body {
   border: none;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-weight: 500;
+  cursor: pointer;
 }
 
-.wrap-tab{
-    margin-bottom: 1rem;
-    width: 100%;
+.wrap-tab {
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .btn.btn-primary.tabs {
@@ -101,7 +102,7 @@ body {
   color: var(--text-white);
   border-radius: 0.5rem;
   font-family: Poppins;
-  font-size: .75rem;
+  font-size: 0.75rem;
   border: none;
   width: 90px;
   height: 30px;
@@ -112,24 +113,50 @@ body {
 }
 
 .btn.btn-primary.tabs.off {
-  background-color:var(--bg-secondary);
+  background-color: var(--bg-secondary);
   color: var(--primary);
 }
 
-.mr-1{
-    margin-right: .5rem;
+.mr-1 {
+  margin-right: 0.5rem;
 }
 
 .bottom select {
-    width: 100%;
-    height: 40px;
-    border-radius: 0.5rem;
-    background: #e7e7e7;
-    border: none;
-    padding-left: 16px;
-    padding-right: 16px;
-    font-family: "poppins";
-    font-size: 14px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-  }
+  width: 100%;
+  height: 40px;
+  border-radius: 0.5rem;
+  background: #e7e7e7;
+  border: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: "poppins";
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.wrap-success {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap-success h3 {
+  font-family: "poppins";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.wrap-success a{
+    cursor: pointer;
+}
+
+#back{
+    width: 20rem;
+}
