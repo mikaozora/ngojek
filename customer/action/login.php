@@ -39,6 +39,7 @@ if(isset($_POST["login"])){
             if (password_verify($password,$row["password"])) {
                 $_SESSION["session_username"] = $row["username"];
                 $_SESSION["session_password"] = $row["password"];
+                $_SESSION["customer_id"] = $row["customer_id"];
 
                 $cookieName = "cookie_username";
                 $cookieValue = $row["username"];
