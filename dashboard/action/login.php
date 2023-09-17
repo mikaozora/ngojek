@@ -82,6 +82,11 @@ if (isset($_POST["login"])) {
                 setcookie($cookieName, $cookieValue, $cookieTime, "/");
 
                 header("location: ../pages/seller/home.php");
+            }else{
+                echo "<script>
+                window.location.href = '../index.php';
+                alert('wrong username/password');
+                </script>";
             }
         } else {
             echo "<script>
@@ -91,6 +96,3 @@ if (isset($_POST["login"])) {
         }
     }
 }
-
-
-?>
