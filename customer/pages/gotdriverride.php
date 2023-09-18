@@ -49,7 +49,7 @@ include("../../Database/connection.php");
                         <input type="hidden" name="driverid" value="<?= $arraydriver[$randNum]["driver_id"] ?>">
                     </div>
                     <div class="btn-kontainer">
-                        <button type="submit" class="finish-btn" name="submit">Finish Transaction</button>
+                        <button type="submit" class="finish-btn" name="submitRide">Finish Transaction</button>
                     </div>
                 </form>
             </div>
