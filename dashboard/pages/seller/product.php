@@ -65,6 +65,7 @@
                     } else {
                         $sql = "select * from item where merchant_id = '$logged_id' limit $start, $rowPerPage";
                     }
+                    
                     $res = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($res)) :
                         $no++;
