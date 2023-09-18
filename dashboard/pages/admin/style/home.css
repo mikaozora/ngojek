@@ -1,18 +1,103 @@
 :root {
-    --primary: #0dba8a;
-    --text-white: #ffffff;
-    --text-black: #092e24;
-    --bg-grey: #f0f0f0;
-    --bg-secondary: #dcf6ef;
+  --primary: #0dba8a;
+  --text-white: #ffffff;
+  --text-black: #092e24;
+  --bg-grey: #f0f0f0;
+  --bg-secondary: #dcf6ef;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.kontainer {
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg-grey);
+  height: 100%;
+}
+
+  ul{
+    list-style-type: none;
   }
   
-  body {
-    margin: 0;
+  h1, span, h4, h2{
+    font-size: 2rem;
+    
+  }
+
+  h1, span, h4, h2, h3{
+    font-family: 'poppins';
+  }
+
+  /* ==================style kesimpulan total pengguna gojek================= */
+
+  .containContentv{
+    padding: 2%;
+    padding-left: 340px;
+  }
+
+  .containContentv{
+    width: 100%;
+  }
+
+  .countSummaryv{
+    display: flex;
+    justify-content: space-between;
     padding: 0;
+    width: 99.8%;
+    margin: 3% 0;
   }
+
+  .cardCountv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: #ffffff;
+    width: 21%;
+    padding: 1%;
+    border-radius: 5%;
+    
+  }
+
+  .cardCountv > *{
+    margin: 2% 3%;
+  }
+
+  .cardCountv > span{
+    font-size: 0.9rem;
+  }
+
+  .cardCountv > h4{
+    
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
+  .cardCountv > img{
+    width: 20%;
+  }
+
+  /* ============================================================================ */
+
+  .lcontain{
+    border-radius: 5%;
+  }
+
   
-  .container{
-      display: flex;
-      height: 100vh;
-      background-color: var(--bg-grey);
-  }
+
+
+  

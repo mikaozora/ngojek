@@ -13,10 +13,10 @@ if (isset($_COOKIE["cookie_username"])) {
         $cookieUsername = $_COOKIE["cookie_username"];
         $cookiePassword = $_COOKIE["cookie_password"];
 
-        $sql = "select * from seller where username = '$cookieUsername'";
+        $sql = "select * from merchant where username = '$cookieUsername'";
         $res = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($res);
-        if ($cookiePassword = $row["password"]) {
+        if ($cookiePassword == $row["password"]) {
             $_SESSION["session_username"] = $cookieUsername;
             $_SESSION["session_password"] = $cookiePassword;
         }
@@ -52,7 +52,7 @@ if (isset($_POST["login"])) {
         setcookie($cookieName, $cookieValue, $cookieTime, "/");
         header("location: ../pages/admin/home.php");
     } else {
-        $sql = "select * from seller where username = '$username'";
+        $sql = "select * from merchant where username = '$username'";
         $res = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($res);
         if (isset($row)) {
@@ -70,13 +70,29 @@ if (isset($_POST["login"])) {
                 $cookieTime = time() + (60 * 60 * 24);
                 setcookie($cookieName, $cookieValue, $cookieTime, "/");
 
+
+                $cookieName = "cookie_merchant_id";
+                $cookieValue = $row["merchant_id"];
+                $cookieTime = time() + (60 * 60 * 24);
+                setcookie($cookieName, $cookieValue, $cookieTime, "/");
+
+                $cookieName = "cookie_merchant_type";
+                $cookieValue = $row["merchant_type"];
+                $cookieTime = time() + (60 * 60 * 24);
+                setcookie($cookieName, $cookieValue, $cookieTime, "/");
+
                 header("location: ../pages/seller/home.php");
+            }else{
+                echo "<script>
+                window.location.href = '../index.php';
+                alert('wrong username/password');
+                </script>";
             }
         } else {
-            echo "username/password salah";
+            echo "<script>
+            window.location.href = '../index.php';
+            alert('wrong username/password');
+            </script>";
         }
     }
 }
-
-
-?>
