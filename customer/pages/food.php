@@ -17,9 +17,9 @@
             <!-- this is for header -->
             <div class="header">
                 <div class="back">
-                    <a href="">
+                    <a href="../pages/home.php">
                         <div class="exit_page"></div>  
-                    </a>
+                    </a>    
                 </div>
                 <div class="header_name">
                     <h5>Foods</h5>
