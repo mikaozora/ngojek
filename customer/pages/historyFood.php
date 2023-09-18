@@ -1,5 +1,7 @@
 <?php
 include('../../Database/connection.php');
+session_start();
+$logged_customer = $_SESSION["session_customerid"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +12,7 @@ include('../../Database/connection.php');
     JOIN order_menu_detail omd ON om.order_menuid = omd.order_menuid
     JOIN merchant m ON om.merchant_id = m.merchant_id
     JOIN menu mn ON omd.menu_id = mn.menu_id
-    WHERE om.customer_id = 'CS001'
+    WHERE om.customer_id = '$logged_customer'
     GROUP BY om.order_menuid
     LIMIT 0,7";
     $res = mysqli_query($conn, $sql);

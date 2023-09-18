@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $customer_id = $_SESSION["customer_id"];
+    $logged_customer = $_SESSION["session_customerid"];
     include('../../Database/connection.php');
 ?>
 
@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    $sql = "select * from order_driver where customer_id = '$customer_id' limit 0, 7";
+    $sql = "select * from order_driver where customer_id = '$logged_customer' limit 0, 7";
     $res = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($res)):
     ?>
