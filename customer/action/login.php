@@ -56,7 +56,6 @@ if(isset($_POST["login"])){
                 $cookieTime = time() + (60*60*24);
                 setcookie($cookieName,$cookieValue,$cookieTime,"/");
 
-<<<<<<< Updated upstream
                 $cust_subs = $row["subscription_id"];
 
                 $sql_subs = "select name from subscription where subscription_id = '$cust_subs'";
@@ -88,11 +87,8 @@ if(isset($_POST["login"])){
                 $cookieTime = time() + (60*60*24);
                 setcookie($cookieName,$cookieValue,$cookieTime,"/");
 
-
-=======
                 $sessionCustId = $row["customer_id"];
                 $_SESSION["session_customerid"] = $sessionCustId;
->>>>>>> Stashed changes
 
                 echo "success";
                 
