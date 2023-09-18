@@ -42,7 +42,7 @@
                         <label for="">Fees</label>
                         <input type="text" name="fees">
                     </div>
-                    <button type="submit" class="submit-btn" name="paybutton">Pay</button>
+                    <button type="submit" class="submit-btn" name="paybuttonSent">Pay</button>
                 </form>
             </div>
         </div>
