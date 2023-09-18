@@ -87,6 +87,10 @@ if(isset($_POST["login"])){
                 $cookieTime = time() + (60*60*24);
                 setcookie($cookieName,$cookieValue,$cookieTime,"/");
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                 $sessionCustId = $row["customer_id"];
                 $_SESSION["session_customerid"] = $sessionCustId;
 
