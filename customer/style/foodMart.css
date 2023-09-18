@@ -1,0 +1,14 @@
+:root {
+    --primary: #0dba8a;
+    --text-white: #ffffff;
+    --text-black: #092e24;
+    --bg-grey: #f0f0f0;
+    --bg-secondary: #dcf6ef;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+

@@ -12,7 +12,6 @@ body {
 }
 
 
-
 .container {
     display: flex;
     justify-content: center;
@@ -93,6 +92,12 @@ body {
     /* height: 80%;
     width: 100%; */
 }
+
+.mart_name a{
+    text-decoration: none;
+    color: inherit;
+}
+
 
 .mart_list{ 
     display: flex;

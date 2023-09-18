@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2023 at 04:21 AM
+-- Generation Time: Sep 18, 2023 at 08:32 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,14 +37,14 @@ CREATE TABLE `customers` (
   `password` varchar(100) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
   `phone_number` varchar(15) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`customer_id`, `subscription_id`, `name`, `gender`, `age`, `username`, `password`, `address`, `phone_number`) VALUES
-('CS001', 'SID01', 'john doe', 'male', 20, 'johndoe', 'johndoe123', 'Babakan madang', '08765');
+('CS001', 'SID01', 'jambul', 'male', 44, 'johndoe', '$2y$10$eAWSVYtFR.2RSOgBL6Vqd.MBeC3Rx7mjiEJGJeostLUtFCLU2BftW', 'bekasi', '9999999');
 
 -- --------------------------------------------------------
 
@@ -58,15 +58,20 @@ CREATE TABLE `driver` (
   `name` varchar(100) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `gender` enum('male','female') DEFAULT NULL,
-  `phone_number` varchar(15) DEFAULT NULL
+  `phone_number` varchar(15) DEFAULT NULL,
+  `number_plate` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`driver_id`, `vehicle`, `name`, `age`, `gender`, `phone_number`) VALUES
-('DI001', 'Vario 150', 'Beny', 29, 'male', '0889578394');
+INSERT INTO `driver` (`driver_id`, `vehicle`, `name`, `age`, `gender`, `phone_number`, `number_plate`) VALUES
+('DI001', 'Vario 150', 'Beny', 29, 'male', '0889578394', 'DK 1024 KJ'),
+('DI002', 'vario', 'panjul', 30, 'male', '082232175005', 'W 1239 AS'),
+('DI003', 'ZX25R', 'Nafisya', 29, 'female', '081289236745', 'B 4247 NJK'),
+('DI004', 'Honda Scoopy', 'Mayra', 45, 'female', '08347413478', 'F 7263 HFA'),
+('DI005', 'Honda PCX ASEK', 'Arasy', 35, 'male', '08123513612', 'D 5346 IWY');
 
 -- --------------------------------------------------------
 
@@ -80,14 +85,16 @@ CREATE TABLE `goods` (
   `name` varchar(100) DEFAULT NULL,
   `dimension` int(11) DEFAULT NULL,
   `description` text DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `goods`
 --
 
 INSERT INTO `goods` (`goods_id`, `weight`, `name`, `dimension`, `description`) VALUES
-('G0001', 12, 'Roti maryam', 20, 'roti maryam siap makan');
+('G0001', 12, 'Roti maryam', 20, 'roti maryam siap makan'),
+('G0002', 23, 'wertyui', 234, 'werty'),
+('G0004', 37, 'enfjne', 1411, 'hiqwdiqn');
 
 -- --------------------------------------------------------
 
@@ -111,7 +118,8 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`item_id`, `merchant_id`, `category`, `name`, `description`, `image`, `price`, `stock`) VALUES
-('IT001', 'MR001', 'minuman', 'fruit tea', 'minuman segar', '', 3000, 100);
+('IT001', 'MR001', 'minuman', 'fruit tea', 'minuman segar', '', 3000, 100),
+('IT002', 'MR001', 'Makanan', 'Nugget', 'Crispy chicken', NULL, 20000, 195);
 
 -- --------------------------------------------------------
 
@@ -122,18 +130,49 @@ INSERT INTO `item` (`item_id`, `merchant_id`, `category`, `name`, `description`,
 CREATE TABLE `menu` (
   `menu_id` char(5) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
   `category` varchar(100) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `merchant_id` char(5) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`menu_id`, `name`, `price`, `category`, `merchant_id`, `image`) VALUES
-('MN001', 'sop klaten', 24000, 'makanan', 'MR001', '');
+INSERT INTO `menu` (`menu_id`, `name`, `category`, `stock`, `price`, `description`, `merchant_id`, `image`) VALUES
+(' MN00', 'Babi Guling', 'Makanan', 40, 65000, 'Babi enak tau', 'MR001', '6505d4d442a7e-makanan.jpg'),
+('IT021', 'Coca-cola', 'minuman', 34, 8000, 'Coca-cola', 'MR061', '6507eb13e7489-Group 34332.png'),
+('IT044', 'Kecap bangau', 'makanan', 221, 5000, 'Kecap bangau', 'MR071', '6507ecbdeea70-Group 34334.png'),
+('IT047', 'Twisko', 'makanan', 555, 5000, 'Chiki', 'MR071', '6507ece75f07d-Group 34343.png'),
+('IT061', 'Ultra Milk Full cream', 'minuman', 221, 10000, 'Susu uht', 'MR061', '6507eaf05dd68-Group 34333.png'),
+('IT066', 'Durex kontrasepsi', 'Obat', 44, 23000, 'alat kontrasepsi', 'MR061', '6507ea9a78299-Group 34338.png'),
+('IT069', 'Cd indomaret', 'Lain-lain', 61, 35000, 'Celana dalam pria', 'MR061', '6507eac0c5459-Group 34339.png'),
+('IT073', 'Listerin', 'Lain-lain', 555, 35000, 'Listerin', 'MR071', '6507ed009b9c5-Group 34344.png'),
+('IT090', 'Pepsodent', 'Lain-lain', 500, 5000, 'Odol', 'MR077', '6507ec5029944-Group 34342.png'),
+('IT091', 'Yakult', 'minuman', 3333, 9000, 'Yakult', 'MR077', '6507ec1d4e801-Group 34336.png'),
+('IT094', 'Pocky', 'makanan', 800, 5000, 'Pocky', 'MR077', '6507ec34ea445-Group 34341.png'),
+('IT099', 'Tissue Nice', 'Lain-lain', 555, 11000, 'Tissue Nice', 'MR077', '6507ebe741e29-Group 34335.png'),
+('IT321', 'Nescafe', 'minuman', 777, 10000, 'Nescafe Mix', 'MR071', '6507ed19cc344-Group 34345.png'),
+('IT666', 'Karyawan', 'Lain-lain', 1, 999999, 'Mas MAs indomaret ganteng', 'MR061', '6507ec8d2ccf3-Group 34340.png'),
+('MN001', 'sop klaten', 'makanan', 0, 24000, 'anjing', 'MR001', ''),
+('MN002', 'ayam geprek', 'Makanan', NULL, 15000, NULL, 'MR002', NULL),
+('MN003', 'seblak', 'Makanan', 0, 18000, '', 'MR002', '65059cbbd0232-makanan.jpg'),
+('MN005', 'aSU', 'makanan', 20, 20000, '', 'MR001', '65059ca5248a7-makanan.jpg'),
+('MN321', 'Nasi rendang', 'makanan', 300, 18000, 'Nasi rendang dan sayuran', 'MR066', '6507ed57114e4-image 17.png'),
+('MN323', 'Nasi telur balado', 'makanan', 3333, 18000, 'telur bulat balado', 'MR066', '6507edbe9b6be-image 20.png'),
+('MN325', 'Nasi ayam pop', 'makanan', 600, 18000, 'Nasi ayam pop', 'MR066', '6507ed6fed164-image 18.png'),
+('MN354', 'Daging cincang', 'makanan', 555, 23000, 'Daging cincang tanpa nasi', 'MR066', '6507ed909535f-image 19.png'),
+('MN451', 'es kelapa muda', 'minuman', 61, 15000, 'es kelapa muda', 'MR069', '6507eec74cf2c-image 25.png'),
+('MN455', 'Es teler', 'minuman', 61, 15000, 'Es teler', 'MR069', '6507ee6da68d2-image 23.png'),
+('MN457', 'Es buah', 'minuman', 61, 15000, 'Es buah', 'MR069', '6507ee97798b3-image 26.png'),
+('MN459', 'Es doger', 'minuman', 3333, 15000, 'Es doger', 'MR069', '6507eeaddd1bc-image 24.png'),
+('MN551', 'nasi goreng jawa', 'makanan', 555, 23000, 'nasi goreng jawa', 'MR068', '6507ee15befd6-unsplash_rQX9eVpSFz8.png'),
+('MN555', 'nasi goreng spesial', 'makanan', 61, 18000, 'nasi goreng spesial', 'MR068', '6507edfc418ab-image 13.png'),
+('MN557', 'Mie goreng', 'makanan', 61, 18000, 'Mie goreng', 'MR068', '6507ee335543f-unsplash_TNnhq2nUR8s.png'),
+('MN559', 'Es teh', 'minuman', 44, 5000, 'Es teh', 'MR068', '6507ee47c1094-unsplash_CCowelQ2pLw.png');
 
 -- --------------------------------------------------------
 
@@ -168,7 +207,13 @@ INSERT INTO `merchant` (`merchant_id`, `address`, `name`, `description`, `image`
 ('MR008', 'asdf', 'asdf', 'sdf', '6502c7f1dc825-gambar-foto-orang-8.jpg', 'Restaurant', 'rtyu', '$2y$10$1lcwRWag5bo5ndTI/47Iqu01gw5piEQHupIMyX9huFjsRRGfwe3tO', '88888'),
 ('MR009', 'qwert', 'qwert', 'qwert', '6502c80952a91-artis-9.jpg', 'Mart', 'njnj', '$2y$10$WALRaYZqmb3sAmHM7JCvzO2i.FLMokjyWwDgw2Xz6/YVg7EL/CVSO', '234567'),
 ('MR010', 'tyu', 'rty', 'dfgh', '6502c82d83cfd-025b0231f7aa1499ca7154254fd1e6bb.jpg', 'Restaurant', 'xcvbn', '$2y$10$sYjr4e60oeJTgt0uHAnl5uYsHaLH3xu56ZFxYUthJ.pXl4VNAZZj6', '5678'),
-('MR011', 'daww', 'dawda', 'dwadw', '6502ca7ec8b29-artis-9.jpg', 'Restaurant', 'kkemfke', '$2y$10$HWx5E7FbHj8lL/VAOlgEXOpHW5K8c.9RZDMJ/L9wVlSqrWSSfb1aC', '34543');
+('MR011', 'daww', 'dawda', 'dwadw', '6502ca7ec8b29-artis-9.jpg', 'Restaurant', 'kkemfke', '$2y$10$HWx5E7FbHj8lL/VAOlgEXOpHW5K8c.9RZDMJ/L9wVlSqrWSSfb1aC', '34543'),
+('MR061', 'babakan madang', 'Indomaret', 'jual aneka kebutuhan', '6507d1ad50e79-image 34.png', 'Mart', 'indomaret', '$2y$10$758/eqYLFEcOxlbBRaGK2edqmIttKXFbIpVGC33CcZ54tK8YTWlZm', '4445524'),
+('MR066', 'babakan madang', 'RM Padang Uda Uni', 'rumah makan padang murah', '6507d1088d289-image 15.png', 'Restaurant', 'udauni', '$2y$10$BZM89NpNlt/IiR/Tt31yyesOPYdNQGmWr/U0uXQR9Tcuxxh.ByheK', '987890987'),
+('MR068', 'babakan madang', 'Nasi goreng Ajiz', 'jual aneka mi dan nasi goreng', '6507d17f215c1-image 13.png', 'Restaurant', 'ajiz', '$2y$10$YzI6GGT8zC/79iR3BcS7rOWystdMI4f1XAGgD7qBVN2SiRGzaANO6', '99789344'),
+('MR069', 'babakan madang', 'Es Teler Enak', 'jual aneka es nusantara', '6507d145d78fe-image 12.png', 'Restaurant', 'teler', '$2y$10$Su2rSpla/SAkCzcjtMt7F.vvxjizhV7YOY5TRMDiHCEw2F7JTDQg2', '6545677774'),
+('MR071', 'babakan madang', 'Toko Madura', 'jual sembako dan kebutuhan sehari hari', '6507d1f5467ee-unsplash_PfAFNYL-qXY.png', 'Mart', 'madura', '$2y$10$AfXVs8U29FFp9xiDS5goH.ClDa8wfhSDGpmtV2cphG6Upi.dVcJw6', '876545678'),
+('MR077', 'babakan madang', 'Toko Berkah', 'jual kebutuhan sehari hari', '6507d1cc81ce1-unsplash_IuXtdvHNc2g.png', 'Mart', 'barokah', '$2y$10$64afys1FBwM/CkW8DO8aZOv74EBNjp/C0GzztKvGtBYyVHo2hlh4m', '6544567887');
 
 -- --------------------------------------------------------
 
@@ -181,15 +226,27 @@ CREATE TABLE `order_driver` (
   `driver_id` char(5) DEFAULT NULL,
   `customer_id` char(5) DEFAULT NULL,
   `destination` varchar(100) DEFAULT NULL,
-  `source` varchar(100) DEFAULT NULL
-) ;
+  `source` varchar(100) DEFAULT NULL,
+  `transaction_date` date DEFAULT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_driver`
 --
 
-INSERT INTO `order_driver` (`order_driverid`, `driver_id`, `customer_id`, `destination`, `source`) VALUES
-('OD001', 'DI001', 'CS001', 'aeon mall', 'rumah talenta bca');
+INSERT INTO `order_driver` (`order_driverid`, `driver_id`, `customer_id`, `destination`, `source`, `transaction_date`, `total`) VALUES
+('OD001', 'DI001', 'CS001', 'aeon mall', 'rumah talenta bca', '2023-08-10', 50000),
+('OD002', 'DI001', 'CS001', 'joglo', 'rtb', '2023-09-05', 12345),
+('OD003', 'DI002', 'CS001', 'famindo', 'rtb', '2023-09-09', 98765),
+('OD004', 'DI001', 'CS001', 'nirwana', 'rtb', '2023-09-26', 4567),
+('OD005', 'DI001', 'CS001', 'badang', 'rtb', '2023-09-12', 6789),
+('OD006', 'DI002', 'CS001', 'kwdak', 'kdmkaw', '2023-09-13', 345667),
+('OD007', 'DI001', 'CS001', 'dkada', 'duhaw', '2023-09-02', 4321),
+('OD008', 'DI002', 'CS001', 'wadmk', 'tyuiwakd', '2023-09-27', 12345),
+('OD009', 'DI002', 'CS001', 'yadadw', 'kmdkaf', '2023-09-01', 29222),
+('OD010', 'DI001', 'CS001', 'kwmdkadm', 'cdccaw', '2023-09-07', 5678),
+('OD011', 'DI002', 'CS001', 'kwmdka', 'dowdff', '2023-09-08', 5678);
 
 -- --------------------------------------------------------
 
@@ -200,36 +257,23 @@ INSERT INTO `order_driver` (`order_driverid`, `driver_id`, `customer_id`, `desti
 CREATE TABLE `order_goods` (
   `order_goodsid` char(5) NOT NULL CHECK (`order_goodsid` regexp '^OG[0-9][0-9][0-9]'),
   `customer_id` char(5) DEFAULT NULL,
-  `driver_id` char(5) DEFAULT NULL
+  `driver_id` char(5) DEFAULT NULL,
+  `transaction_date` date DEFAULT NULL,
+  `goods_id` char(5) NOT NULL,
+  `source` varchar(100) NOT NULL,
+  `destination` varchar(100) NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_goods`
 --
 
-INSERT INTO `order_goods` (`order_goodsid`, `customer_id`, `driver_id`) VALUES
-('OG001', 'CS001', 'DI001');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_goods_detail`
---
-
-CREATE TABLE `order_goods_detail` (
-  `order_goodsid` char(5) NOT NULL CHECK (`order_goodsid` regexp '^OG[0-9][0-9][0-9]'),
-  `goods_id` char(5) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `source` varchar(255) DEFAULT NULL,
-  `destination` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_goods_detail`
---
-
-INSERT INTO `order_goods_detail` (`order_goodsid`, `goods_id`, `quantity`, `source`, `destination`) VALUES
-('OG001', 'G0001', 4, 'Aeon Mall Sentul City Lt.2', 'Rumah Talenta BCA - B502');
+INSERT INTO `order_goods` (`order_goodsid`, `customer_id`, `driver_id`, `transaction_date`, `goods_id`, `source`, `destination`, `total`) VALUES
+('OG001', 'CS001', 'DI001', '2023-09-01', 'G0001', 'rtb', 'aeon', 45000),
+('OG002', 'CS001', 'DI001', '2023-09-17', 'G0001', 'Jakarta', 'Bandung', 40000),
+('OG003', 'CS001', 'DI001', '2023-09-17', 'G0002', 'rty', 'wwd', 12345),
+('OG004', 'CS001', 'DI005', '2023-09-17', 'G0004', 'ienfi', 'ihbqe', 141412);
 
 -- --------------------------------------------------------
 
@@ -241,15 +285,16 @@ CREATE TABLE `order_item` (
   `order_itemid` char(5) NOT NULL CHECK (`order_itemid` regexp '^OI[0-9][0-9][0-9]'),
   `driver_id` char(5) DEFAULT NULL,
   `customer_id` char(5) DEFAULT NULL,
-  `merchant_id` char(5) DEFAULT NULL
+  `merchant_id` char(5) DEFAULT NULL,
+  `transaction_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_item`
 --
 
-INSERT INTO `order_item` (`order_itemid`, `driver_id`, `customer_id`, `merchant_id`) VALUES
-('OI001', 'DI001', 'CS001', 'MR001');
+INSERT INTO `order_item` (`order_itemid`, `driver_id`, `customer_id`, `merchant_id`, `transaction_date`) VALUES
+('OI001', 'DI001', 'CS001', 'MR001', '2023-09-15');
 
 -- --------------------------------------------------------
 
@@ -268,7 +313,8 @@ CREATE TABLE `order_item_detail` (
 --
 
 INSERT INTO `order_item_detail` (`order_itemid`, `item_id`, `quantity`) VALUES
-('OI001', 'IT001', 5);
+('OI001', 'IT001', 5),
+('OI001', 'IT002', 5);
 
 --
 -- Triggers `order_item_detail`
@@ -290,15 +336,17 @@ CREATE TABLE `order_menu` (
   `order_menuid` char(5) NOT NULL,
   `customer_id` char(5) DEFAULT NULL,
   `merchant_id` char(5) DEFAULT NULL,
-  `driver_id` char(5) DEFAULT NULL
-) ;
+  `driver_id` char(5) DEFAULT NULL,
+  `transaction_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_menu`
 --
 
-INSERT INTO `order_menu` (`order_menuid`, `customer_id`, `merchant_id`, `driver_id`) VALUES
-('OM001', 'CS001', 'MR001', 'DI001');
+INSERT INTO `order_menu` (`order_menuid`, `customer_id`, `merchant_id`, `driver_id`, `transaction_date`) VALUES
+('OM001', 'CS001', 'MR001', 'DI001', '2023-10-10'),
+('OM002', 'CS001', 'MR002', 'DI002', '2023-09-01');
 
 -- --------------------------------------------------------
 
@@ -317,7 +365,9 @@ CREATE TABLE `order_menu_detail` (
 --
 
 INSERT INTO `order_menu_detail` (`order_menuid`, `menu_id`, `quantity`) VALUES
-('OM001', 'MN001', 3);
+('OM001', 'MN001', 3),
+('OM002', 'MN002', 3),
+('OM002', 'MN003', 2);
 
 -- --------------------------------------------------------
 
@@ -331,7 +381,7 @@ CREATE TABLE `subscription` (
   `description` text DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `period` int(11) DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subscription`
@@ -399,14 +449,8 @@ ALTER TABLE `order_driver`
 ALTER TABLE `order_goods`
   ADD PRIMARY KEY (`order_goodsid`),
   ADD KEY `fk_ordergoods_driver` (`driver_id`),
-  ADD KEY `fk_ordergoods_customer` (`customer_id`);
-
---
--- Indexes for table `order_goods_detail`
---
-ALTER TABLE `order_goods_detail`
-  ADD PRIMARY KEY (`order_goodsid`),
-  ADD KEY `fk_detail_goods` (`goods_id`);
+  ADD KEY `fk_ordergoods_customer` (`customer_id`),
+  ADD KEY `goods_id` (`goods_id`);
 
 --
 -- Indexes for table `order_item`
@@ -480,14 +524,8 @@ ALTER TABLE `order_driver`
 --
 ALTER TABLE `order_goods`
   ADD CONSTRAINT `fk_ordergoods_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_ordergoods_driver` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `order_goods_detail`
---
-ALTER TABLE `order_goods_detail`
-  ADD CONSTRAINT `fk_detail_goods` FOREIGN KEY (`goods_id`) REFERENCES `goods` (`goods_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_detail_ordergoods` FOREIGN KEY (`order_goodsid`) REFERENCES `order_goods` (`order_goodsid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_ordergoods_driver` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_goods_ibfk_1` FOREIGN KEY (`goods_id`) REFERENCES `goods` (`goods_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_item`
