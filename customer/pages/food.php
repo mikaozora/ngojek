@@ -1,6 +1,6 @@
 <?php
    include("../../Database/connection.php");
-   $qry = "select * from merchant"; 
+   $qry = "select * from merchant limit 0,6"; 
 ?>
 
 <html lang="en">
@@ -16,15 +16,16 @@
         <div class="device">
             <!-- this is for header -->
             <div class="header">
-                <a href="">
-                    <div class="exit_page">
-                        
-                    </div>  
-                </a>
+                <div class="back">
+                    <a href="">
+                        <div class="exit_page"></div>  
+                    </a>
+                </div>
                 <div class="header_name">
-                    <h5>Food</h5>
+                    <h5>Foods</h5>
                 </div>
                 <div class="image_cart">
+                    <img src="../../uploads/Picture1.png" alt="" height: "100%" width="100%">
                 </div>
             </div>
             <!-- this is for showing the mart -->
@@ -34,9 +35,15 @@
                     while($row = mysqli_fetch_assoc($conc)) :
                 ?>
                 <div class="mart_list">
-                    <p><?= $row["name"]?></p>
-                    <p><?= $row["merchant_type"]?></p>
+                    <div class="image_container">
+                        <img src="../../uploads/<?=$row["image"]?>" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="mart_desc">
+                        <h4><?= $row["name"]?></h4>
+                        <p><?= $row["merchant_type"]?></p>
+                    </div>
                 </div>
+                <div class="line-spacing"></div>
                     <?php endwhile; ?>
             </div>
 
