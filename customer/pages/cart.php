@@ -4,10 +4,6 @@ session_start();
 // var_dump($_SESSION["cart"]);
 $total = 0;
 
-if(isset($_POST["checkout"])){
-    
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +40,7 @@ if(isset($_POST["checkout"])){
                             ?>
                                     <div class="cart-detail">
                                         <div class="left">
-                                            <img src="../../uploads/650553800b1a4-makanan.jpg" alt="" width="100%" height="100%">
+                                            <img src="../../uploads/<?= $value["image"] ?>" alt="" width="100%" height="100%">
                                             <div class="desc-product">
                                                 <h5 class="price">Rp<?= number_format($value["price"], 0, ',', '.') ?></h5>
                                                 <h6 class="title"><?= $value["name"] ?></h6>
@@ -71,12 +67,11 @@ if(isset($_POST["checkout"])){
                         <h3>Total Price</h3>
                         <h3 class="tp">Rp<?= number_format($total, 0, ',', '.') ?></h3>
                     </div>
-                    <form action="cart.php" method="post">
+                    <form action="gotdrivermart.php" method="post">
                         <button class="btn-checkout" type="submit" name="checkout">Check out</button>
                     </form>
                 </div>
             </div>
-
         </div>
 
 

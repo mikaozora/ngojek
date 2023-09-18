@@ -7,6 +7,7 @@ if (!isset($_SESSION["session_username"])) {
 }
 $_SESSION["cart"] = NULL;
 $_SESSION["session_merchant_id"] = NULL;
+
 $sql = "select * from merchant where merchant_type = 'Mart'";
 $res = mysqli_query($conn, $sql);
 

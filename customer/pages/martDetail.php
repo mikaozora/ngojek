@@ -80,14 +80,14 @@ if (isset($_POST["addToCart"])) {
                 <h5>All Items</h5>
                 <div class="list-product">
                     <?php
-                    $sql_menu = "select * from menu where merchant_id = '$merchant_id'";
+                    $sql_menu = "select * from item where merchant_id = '$merchant_id'";
                     $res_menu = mysqli_query($conn, $sql_menu);
                     while ($row_menu = mysqli_fetch_assoc($res_menu)) :
                     ?>
                         <div class="detail-product">
                             <div class="product-img">
                                 <img src="../../uploads/<?= $row_menu["image"] ?>" alt="" width="100%" height="100%">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalQty<?= $row_menu["menu_id"] ?>">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalQty<?= $row_menu["item_id"] ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                         <path d="M15 10.8334H10.8333V15C10.8333 15.4584 10.4583 15.8334 9.99996 15.8334C9.54163 15.8334 9.16663 15.4584 9.16663 15V10.8334H4.99996C4.54163 10.8334 4.16663 10.4584 4.16663 10C4.16663 9.54169 4.54163 9.16669 4.99996 9.16669H9.16663V5.00002C9.16663 4.54169 9.54163 4.16669 9.99996 4.16669C10.4583 4.16669 10.8333 4.54169 10.8333 5.00002V9.16669H15C15.4583 9.16669 15.8333 9.54169 15.8333 10C15.8333 10.4584 15.4583 10.8334 15 10.8334Z" fill="white" />
                                     </svg>
@@ -98,7 +98,7 @@ if (isset($_POST["addToCart"])) {
                         </div>
 
                         <!-- modal qty -->
-                        <div class="modal fade" id="modalQty<?= $row_menu["menu_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalQty<?= $row_menu["item_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <!-- <div class="modal-header">
@@ -111,7 +111,7 @@ if (isset($_POST["addToCart"])) {
                                             <label for="exampleFormControlInput1" class="form-label">Quantity</label>
                                             <input type="number" class="form-control" name="quantity">
                                             <input type="hidden" name="merchant_id" value="<?= $merchant_id ?>">
-                                            <input type="hidden" name="item_id" value="<?= $row_menu["menu_id"] ?>">
+                                            <input type="hidden" name="item_id" value="<?= $row_menu["item_id"] ?>">
                                             <input type="hidden" name="menu_name" value="<?= $row_menu["name"] ?>">
                                             <input type="hidden" name="menu_price" value="<?= $row_menu["price"] ?>">
                                             <input type="hidden" name="menu_img" value="<?= $row_menu["image"] ?>">
