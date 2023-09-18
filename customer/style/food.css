@@ -1,0 +1,131 @@
+:root {
+    --primary: #0dba8a;
+    --text-white: #ffffff;
+    --text-black: #092e24;
+    --bg-grey: #f0f0f0;
+    --bg-secondary: #dcf6ef;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-grey);
+}
+
+.device {
+    width: 375px;
+    height: 100vh;
+    background-color: var(--text-white);
+    padding: 1.5rem;
+}
+.header{ 
+    display:flex;
+    flex-direction: row; 
+    align-items: center;
+    height:12%; 
+    width: 100%; 
+}
+.back{
+    height: 100%; 
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exit_page{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:20%;
+    width: 2.5px;
+    border-radius: 10px;
+    background-color: black; 
+    transform: rotate(45deg);
+}
+.exit_page::after{ 
+    content: ""; 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    width: 2.5px;
+    border-radius: 10px;
+    background-color: black; 
+    transform: rotate(-90deg);
+}
+.header_name{
+    height:100%;
+    width: 40%;
+    display: flex ;
+    justify-content: start;
+}
+.header_name h5{
+    font-family: "poppins";
+    font-size: 20px;
+}
+.image_cart{ 
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+
+}
+.image_cart img{
+    height: 1.75rem;
+    width: 1.75rem; 
+    object-fit: cover;
+}
+
+.mart_name{
+    /* height: 80%;
+    width: 100%; */
+}
+
+.mart_list{ 
+    display: flex;
+    flex-direction: row;
+    font-family: "poppins";
+    font-size: 15px;   
+}
+.image_container{ 
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-spacing{ 
+    height: 1px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(219, 219, 219);
+    box-sizing: border-box;
+}
+.mart_desc h4{ 
+    margin : 20px 0px 8px 0px;
+}
+.mart_desc p{
+    margin: 5px 0px 5px 0px;
+}
+
+.image_container img{ 
+    height: 3.5rem; 
+    width: 3.5rem; 
+    border-radius: 10px;
+}
+
+
