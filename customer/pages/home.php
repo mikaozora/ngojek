@@ -1,12 +1,15 @@
 <?php
     session_start();
-    
+    include("../../Database/connection.php");
     if(!isset($_SESSION["session_username"])){
         header("location: ../index.php");
         exit();
     }
 
-
+    $username = $_COOKIE["cookie_username"];
+    $sql = "select * from customers where username = '$username' ";
+    $res = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($res);
 
 ?>
 
@@ -32,7 +35,7 @@
             <div class="header">
                 <div class="left-side">
                     <h1>Ngojek.</h1>
-                    <span>Hello, <?php echo $_COOKIE["cookie_name"]?>👋</span>
+                    <span>Hello, <?php echo $row["name"]?>👋</span>
                 </div>
                 <a href="profile.php"><div class="avatar">
                 </div></a>
@@ -43,7 +46,7 @@
                     <span>Mart</span>
                 </div>
                 <div class="item">
-                    <a href="sent.php"><img src="../assets/sent.svg" alt=""></a>
+                    <a href="goods.php"><img src="../assets/sent.svg" alt=""></a>
                     <span>Sent</span>
                 </div>
                 <div class="item">
@@ -56,7 +59,7 @@
                 </div>
             </div>
             <div class="banner">
-                <img src="../assets/banner.png" alt="">
+                <a href="subscription.php?type=SID01"><img src="../assets/banner.png" alt=""></a>                
             </div>
             <div class="history">
                 <div class="title">
