@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
     $stock = $_POST["stock"];
     $price = $_POST["price"];
     $description = $_POST["description"];
-    $merch_id = $_COOKIE["cookie_merchant_id`"];
+    $merch_id = $_COOKIE["cookie_merchant_id"];
 
     $fileName = $_FILES["image"]["name"];
     $tmpName = $_FILES["image"]["tmp_name"];
@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
 
     $res_menu = false;
     try {
-        if($_COOKIE["merchant_type"] == 'Restaurant'){
+        if($_COOKIE["cookie_merchant_type"] == 'Restaurant'){
             $sql_menu = "insert into menu values ('$menu_id', '$menu_name', '$category', '$stock', '$price', '$description', '$merch_id','$newFileName')";
         } else {
             $sql_menu = "insert into item values ('$menu_id', '$merch_id', '$category', '$menu_name', '$description', '$newFileName', '$price','$stock')";
