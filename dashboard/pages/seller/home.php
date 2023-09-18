@@ -94,9 +94,8 @@ $rowPerPage = 5;
                         while ($row = mysqli_fetch_assoc($res)) :
                             $total += $row["a"] * $row["b"];
                         endwhile;
-
                         ?>
-                        <h4><?= $total ?></h4>
+                        <h4> Rp<?= number_format((float)$total, 2, ',', '.') ?></h4>
                     </li>
                 </ul>
             </div>
