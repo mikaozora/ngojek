@@ -41,7 +41,7 @@ body {
 }
 
 .wrap-header h3 {
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--text-black);
