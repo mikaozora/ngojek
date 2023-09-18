@@ -71,7 +71,18 @@ body {
     border: none;  
     color: var(--text-white);
     height: 37px;
-    margin-top: 30px;
+    margin-top: 180px;
+}
+
+.submit-btn-sent{
+    font-family: "poppins";
+    width: 300px;
+    border-radius: 8px;
+    background-color: var(--primary);
+    border: none;  
+    color: var(--text-white);
+    height: 37px;
+    margin-top: 110px;
 }
 
 .data textarea{
