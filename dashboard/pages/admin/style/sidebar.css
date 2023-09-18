@@ -15,8 +15,12 @@ body {
   width: 16rem;
   background-color: var(--text-white);
   padding: 1.5rem 1.5rem 2.5rem 1.5rem;
-  min-height: 100%;
+  height: 100%;
   position: fixed;
+}
+
+.bottom-sidebar{
+  margin-bottom: 18%;
 }
 
 .content-sidebar{
