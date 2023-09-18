@@ -32,7 +32,7 @@ $rowPerPage = 5;
         <?php include("sidebar.php"); ?>
         <div class="containContentv">
             <?php
-            $sql = "select name as num from merchant where username = '$_SESSION[session_username]'";
+            $sql = "select name as num from merchant where username = '$_SESSION[session_username]';";
             $res = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($res)) :
             ?>
@@ -46,7 +46,7 @@ $rowPerPage = 5;
                         <img src="../../../uploads/Component 1.png">
                         <span>Total Products</span>
                         <?php
-                        $sql = "select count(i.item_id) as num2, count(m.menu_id) as num from merchant mr join item i join menu m on mr.merchant_id = i.merchant_id and mr.merchant_id = m.merchant_id where username = '$_SESSION[session_username]'";
+                        $sql = "select count(i.item_id) as num2, count(m.menu_id) as num from merchant mr join item i join menu m on mr.merchant_id = i.merchant_id and mr.merchant_id = m.merchant_id where mr.username = '$_SESSION[session_username]';";
                         $res = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($res)) :
                             $totalP = $row['num2'] + $row['num'];
@@ -60,7 +60,7 @@ $rowPerPage = 5;
                         <img src="../../../uploads/Component 2.png">
                         <span>Total Buyers</span>
                         <?php
-                        $sql = "select distinct count(c.customer_id) as num from customers c join order_item oi join order_menu om on c.customer_id = oi.customer_id and c.customer_id = om.customer_id where c.username = '$_SESSION[session_username]'";
+                        $sql = "select distinct count(c.customer_id) as num from customers c join order_item oi join order_menu om join merchant mr on c.customer_id = oi.customer_id and c.customer_id = om.customer_id and mr.merchant_id = om.merchant_id where mr.username = '$_SESSION[session_username]';";
                         $res = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($res)) :
                         ?>
@@ -71,7 +71,7 @@ $rowPerPage = 5;
                         <img src="../../../uploads/Component 3.png">
                         <span>Total Transaction</span>
                         <?php
-                        $sql = "select count(c.customer_id) as num from customers c join order_item oi join order_menu om on c.customer_id = oi.customer_id and c.customer_id = om.customer_id where c.username = '$_SESSION[session_username]'";
+                        $sql = "select count(c.customer_id) as num from customers c join order_item oi join order_menu om join merchant mr on c.customer_id = oi.customer_id and c.customer_id = om.customer_id and mr.merchant_id = om.merchant_id where mr.username = '$_SESSION[session_username]';";
                         $res = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($res)) :
                         ?>
@@ -85,9 +85,9 @@ $rowPerPage = 5;
                         $total = 0;
 
                         if ($_COOKIE["cookie_merchant_type"] == "Restaurant") {
-                            $sql = "select m.price as a, om.quantity b from menu m join order_menu_detail om on m.menu_id = om.menu_id;";
+                            $sql = "select m.price as a, om.quantity b from menu m join order_menu_detail om join merchant mt on m.menu_id = om.menu_id and mt.merchant_id = m.merchant_id where mt.username = '$_SESSION[session_username]';";
                         } else {
-                            $sql = "select m.price as a, om.quantity b from item m join order_item_detail om on m.item_id = om.item_id;";
+                            $sql = "select m.price as a, om.quantity b from item m join order_item_detail om join merchant mt on m.item_id = om.item_id and mt.merchant_id = m.merchant_id where mt.username = '$_SESSION[session_username]';";
                         }
 
                         $res = mysqli_query($conn, $sql);
@@ -121,9 +121,9 @@ $rowPerPage = 5;
 
 
                         if ($_COOKIE["cookie_merchant_type"] == 'Restaurant') {
-                            $sql = "select om.order_menuid as a, c.name as b, d.name as c, m.name as d, omd.quantity as e from order_menu_detail omd join order_menu om join customers c join driver d join menu m on omd.order_menuid = om.order_menuid and c.customer_id = om.customer_id and d.driver_id = om.driver_id and m.menu_id = omd.menu_id limit $start, $rowPerPage";
+                            $sql = "select om.order_menuid as a, c.name as b, d.name as c, m.name as d, omd.quantity as e from order_menu_detail omd join order_menu om join customers c join driver d join menu m join merchant mt on omd.order_menuid = om.order_menuid and c.customer_id = om.customer_id and d.driver_id = om.driver_id and m.menu_id = omd.menu_id and mt.merchant_id = m.merchant_id where mt.username = '$_SESSION[session_username]' limit $start, $rowPerPage";
                         } else {
-                            $sql = "select om.order_itemid as a, c.name as b, d.name as c, m.name as d, omd.quantity as e from order_item_detail omd join order_item om join customers c join driver d join item m on omd.order_itemid = om.order_itemid and c.customer_id = om.customer_id and d.driver_id = om.driver_id and m.item_id = omd.item_id limit $start, $rowPerPage";
+                            $sql = "select om.order_itemid as a, c.name as b, d.name as c, m.name as d, omd.quantity as e from order_item_detail omd join order_item om join customers c join driver d join item m join merchant mt on omd.order_itemid = om.order_itemid and c.customer_id = om.customer_id and d.driver_id = om.driver_id and m.item_id = omd.item_id and mt.merchant_id = m.merchant_id where mt.username = '$_SESSION[session_username]' limit $start, $rowPerPage";
                         }
 
                         $res = mysqli_query($conn, $sql);
@@ -162,10 +162,10 @@ $rowPerPage = 5;
                             $start = 0;
                             $no = 1;
                             if ($_COOKIE["cookie_merchant_type"] == 'Restaurant') {
-                                $sql = "select m.name, m.price from menu m join order_menu_detail omd on m.menu_id = omd.menu_id
+                                $sql = "select m.name, m.price from menu m join order_menu_detail omd join merchant mt on m.menu_id = omd.menu_id and mt.merchant_id = m.merchant_id where mt.username = '$_SESSION[session_username]'
                                 group by m.menu_id ORDER BY sum(omd.quantity) desc limit $start, $rowPerPage";
                             } else {
-                                $sql = "select m.name, m.price from item m join order_item_detail omd on m.item_id = omd.item_id
+                                $sql = "select m.name, m.price from item m join order_item_detail omd join merchant mt on m.item_id = omd.item_id and mt.merchant_id = m.merchant_id where mt.username = '$_SESSION[session_username]'
                                 group by m.item_id ORDER BY sum(omd.quantity) desc limit $start, $rowPerPage";
                             } 
                             $res = mysqli_query($conn, $sql);
