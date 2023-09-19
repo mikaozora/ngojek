@@ -3,7 +3,7 @@ session_start();
 include("../../Database/connection.php");
 
 if (isset($_POST["submitFood"])) {
-    $order_menu_id = "OM005";
+    $order_menu_id = "OM006";
     $merchant_id = $_SESSION["session_merchant_id"];
     $customer_id = $_SESSION["session_customerid"];
     $driver_id = $_POST["driverid"]; 
