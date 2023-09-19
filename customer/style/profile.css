@@ -45,9 +45,9 @@ body {
 
 .header h1 {
     padding-top: 16px;
-    ont-family: "poppins";
-    font-size: 24px;
-    font-weight: 600;
+    font-family: "poppins";
+    font-size: 1.125rem;
+    font-weight: 500;
     color: var(--text-black);
     margin-bottom: 16px;
 }
@@ -63,7 +63,7 @@ body {
     margin-bottom: 40px;
     margin: 0;
     font-family: "poppins";
-    font-size: 16px;
+    font-size: 0.75rem;
     font-weight: 200;
     color: var(--text-white);
 }
@@ -73,13 +73,13 @@ body {
     width: 125px;
     margin-top: 16px;
     padding: 4px 20px 4px 20px;
-    background-color: silver;
+    background-color: cadetblue;
     border-radius: 8px;
     text-align: center;
     margin-bottom: 40px;
     margin: 0;
     font-family: "poppins";
-    font-size: 16px;
+    font-size: 0.75rem;
     font-weight: 200;
     color: var(--text-white);
 }
@@ -89,14 +89,13 @@ body {
     width: 125px;
     margin-top: 16px;
     padding: 4px 20px 4px 20px;
-    background-color: magenta;
+    background-color: rgb(0, 79, 139);
     border-radius: 8px;
     text-align: center;
     margin-bottom: 40px;
-
     margin: 0;
     font-family: "poppins";
-    font-size: 16px;
+    font-size: 0.75rem;
     font-weight: 200;
     color: var(--text-white);
 }
@@ -110,10 +109,9 @@ body {
     border-radius: 8px;
     text-align: center;
     margin-bottom: 40px;
-
     margin: 0;
     font-family: "poppins";
-    font-size: 16px;
+    font-size: 0.75rem;
     font-weight: 200;
     color: var(--text-black);
 }
@@ -135,8 +133,8 @@ body {
 
 .info h2 {
     font-family: "poppins";
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--text-black);
 }
 
@@ -144,7 +142,7 @@ body {
 .button {
     display: flex;
     justify-content: space-between;
-    margin-top: 120px;
+    margin-top: 1.5rem;
 }
 
 .logout {
