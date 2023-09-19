@@ -88,10 +88,9 @@ if(isset($_POST["login"])){
                 setcookie($cookieName,$cookieValue,$cookieTime,"/");
 
 
-=======
                 $sessionCustId = $row["customer_id"];
                 $_SESSION["session_customerid"] = $sessionCustId;
->>>>>>> Stashed changes
+
 
                 echo "success";
                 
