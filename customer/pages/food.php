@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="mart_desc">
                                     <h3><?= $row["name"]?></h3>
-                                    <p><?= $row["merchant_type"]?></p>
+                                    <p><?= $row["description"]?></p>
                                 </div>
                             </div>
                         </a>
