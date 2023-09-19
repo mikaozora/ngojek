@@ -74,7 +74,7 @@ if (isset($_POST["addToCart"])) {
                 </div>
             </div>
             <div class="wrap-content">
-                <div class="title-img">
+                <div class="tittle-img">
                     <img src="../../uploads/<?= $row["image"] ?>" alt="" width="100%" height="100%">
                 </div>
                 <h5>All Items</h5>

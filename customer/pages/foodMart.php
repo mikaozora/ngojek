@@ -72,52 +72,51 @@ if (isset($_POST["addToCart"])) {
             </div>
             <div class="wrap-content">
                 <div class="tittle-img">
-                    <img src="../../uploads/6502c82d83cfd-025b0231f7aa1499ca7154254fd1e6bb.jpg" alt="" alt="" height="100%" width="100%"> 
-                <div/>
+                    <img src="../../uploads/6502c82d83cfd-025b0231f7aa1499ca7154254fd1e6bb.jpg" alt="" alt="" height="100%" width="100%">
+                </div>
                 <h5>All Items</h5>
                 <div class="list-product">
-                    <?php 
-                        $sql = "select * from menu where merchant_id = '$food_id'"; 
-                        $in_query = mysqli_query($conn, $sql); 
-                        while($row = mysqli_fetch_assoc($in_query)):?>
+                <?php 
+                    $sql = "select * from menu where merchant_id = '$food_id'"; 
+                    $in_query = mysqli_query($conn, $sql); 
+                    while($row = mysqli_fetch_assoc($in_query)):?>
 
-                            <div class="detail-product">
-                                <div class="product-img">
-                                    <img src="../../uploads/<?=$row["image"]?>" alt="" widht="100%" width="100%">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#modalQty<?= $row["menu_id"] ?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M15 10.8334H10.8333V15C10.8333 15.4584 10.4583 15.8334 9.99996 15.8334C9.54163 15.8334 9.16663 15.4584 9.16663 15V10.8334H4.99996C4.54163 10.8334 4.16663 10.4584 4.16663 10C4.16663 9.54169 4.54163 9.16669 4.99996 9.16669H9.16663V5.00002C9.16663 4.54169 9.54163 4.16669 9.99996 4.16669C10.4583 4.16669 10.8333 4.54169 10.8333 5.00002V9.16669H15C15.4583 9.16669 15.8333 9.54169 15.8333 10C15.8333 10.4584 15.4583 10.8334 15 10.8334Z" fill="white" />
-                                        </svg>
-                                    </button>
-                                </div>
-                                <h6>Rp<?= number_format($row["price"], 0, ',', '.') ?></h6>
-                                <p><?= $row["description"] ?></p>
+                        <div class="detail-product">
+                            <div class="product-img">
+                                <img src="../../uploads/<?=$row["image"]?>" alt="" widht="100%" width="100%">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalQty<?= $row["menu_id"] ?>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15 10.8334H10.8333V15C10.8333 15.4584 10.4583 15.8334 9.99996 15.8334C9.54163 15.8334 9.16663 15.4584 9.16663 15V10.8334H4.99996C4.54163 10.8334 4.16663 10.4584 4.16663 10C4.16663 9.54169 4.54163 9.16669 4.99996 9.16669H9.16663V5.00002C9.16663 4.54169 9.54163 4.16669 9.99996 4.16669C10.4583 4.16669 10.8333 4.54169 10.8333 5.00002V9.16669H15C15.4583 9.16669 15.8333 9.54169 15.8333 10C15.8333 10.4584 15.4583 10.8334 15 10.8334Z" fill="white" />
+                                    </svg>
+                                </button>
                             </div>
+                            <h6>Rp<?= number_format($row["price"], 0, ',', '.') ?></h6>
+                            <p><?= $row["description"] ?></p>
+                        </div>
 
-                            <div class="modal fade" id="modalQty<?= $row["menu_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form action="foodMart.php?food=<?=$food_id ?>" method="post" enctype="multipart/form-data">
-                                            <input type="hidden" name="" value="">
-                                            <div class="modal-body">
-                                                <label for="exampleFormControlInput1" class="form-label">Quantity</label>
-                                                <input type="number" class="form-control" name="quantity">
-                                                <input type="hidden" name="merchant_id" value="<?= $food_id?>">
-                                                <input type="hidden" name="menu_id" value="<?= $row["menu_id"] ?>">
-                                                <input type="hidden" name="menu_name" value="<?= $row["name"] ?>">
+                        <div class="modal fade" id="modalQty<?= $row["menu_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form action="foodMart.php?food=<?=$food_id ?>" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="" value="">
+                                        <div class="modal-body">
+                                            <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                                            <input type="number" class="form-control" name="quantity">
+                                            <input type="hidden" name="merchant_id" value="<?= $food_id?>">
+                                            <input type="hidden" name="menu_id" value="<?= $row["menu_id"] ?>">
+                                            <input type="hidden" name="menu_name" value="<?= $row["name"] ?>">
                                                 <input type="hidden" name="menu_price" value="<?= $row["price"] ?>">
-                                                <input type="hidden" name="menu_img" value="<?= $row["image"] ?>">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-primary" name="addToCart">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            <input type="hidden" name="menu_img" value="<?= $row["image"] ?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary" name="addToCart">Submit</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>  
-                        <?php endwhile; ?>
-                    </div>
+                            </div>
+                        </div>  
+                    <?php endwhile; ?>
                 </div>
             </div>
         </div>

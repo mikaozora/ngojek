@@ -55,6 +55,8 @@ body {
 
 .wrap-content {
   font-family: "poppins";
+  height: 100%;
+  width: 100%;
 }
 
 .mart-list {
@@ -96,9 +98,11 @@ body {
 
 .wrap-content .tittle-img {
   width: 100%;
-  background-color: red;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
 }
 
 .wrap-content .tittle-img img {
@@ -121,6 +125,7 @@ body {
 }
 
 .list-product {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1.5rem;
