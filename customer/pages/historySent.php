@@ -1,4 +1,6 @@
 <?php
+session_start();
+$logged_customer = $_SESSION["session_customerid"];
 include('../../Database/connection.php');
 ?>
 <!DOCTYPE html>
@@ -7,7 +9,7 @@ include('../../Database/connection.php');
 <body>
 <?php
     $sql = "SELECT og.destination, og.total, g.name from order_goods og
-    JOIN goods g ON og.goods_id = g.goods_id limit 0, 7";
+    JOIN goods g ON og.goods_id = g.goods_id where og.customer_id = '$logged_customer' limit 0, 7";
     $res = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($res)) :
     ?>

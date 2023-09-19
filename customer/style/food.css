@@ -133,4 +133,26 @@ body {
     border-radius: 10px;
 }
 
+.modal-dialog{
+    max-width: 300px;
+}
+
+.modal-footer .btn.btn-primary {
+    border-radius: 0.5rem;
+    background-color: var(--primary);
+    border: none;
+    font-size: 0.875rem;
+}
+.modal-footer .btn.btn-secondary {
+   border-radius: 0.5rem;
+   background-color: var(--bg-secondary);
+   color: var(--primary);
+   border: none;
+   font-size: 0.875rem;
+}
+  
+.modal-body .form-control {
+   background-color: var(--bg-grey);
+} 
+
 

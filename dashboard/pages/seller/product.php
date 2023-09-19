@@ -9,7 +9,13 @@
     $start = 0;
     $rowPerPage = 10;
     $logged_id = $_COOKIE["cookie_merchant_id"];
-    $rows = mysqli_query($conn, "select * from menu where merchant_id = '$logged_id'");
+    $logged_type = $_COOKIE["cookie_merchant_type"];
+
+    if ($logged_type == 'Restaurant'){
+        $rows = mysqli_query($conn, "select * from menu where merchant_id = '$logged_id'");
+    } else {
+        $rows = mysqli_query($conn, "select * from item where merchant_id = '$logged_id'");
+    }
 
     $numRows = mysqli_num_rows($rows);
 
@@ -54,7 +60,12 @@
                 <tbody>
                     <?php
                     $no = 1;
-                    $sql = "select * from menu limit $start, $rowPerPage";
+                    if($logged_type == 'Restaurant'){
+                        $sql = "select * from menu where merchant_id = '$logged_id' limit $start, $rowPerPage";
+                    } else {
+                        $sql = "select * from item where merchant_id = '$logged_id' limit $start, $rowPerPage";
+                    }
+                    
                     $res = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($res)) :
                         $no++;
@@ -323,7 +334,7 @@ if (!isset($_GET['page']) && $numRows > $rowPerPage) {
                 <form action="../seller/action/product.php" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Menu ID</label>
+                            <label for="exampleFormControlInput1" class="form-label">ID</label>
                             <input type="text" class="form-control" name="menu_id">
                         </div>
                         <div class="mb-3">

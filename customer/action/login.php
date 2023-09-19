@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include("/xampp/htdocs/ngojek/Database/connection.php");
+include("../../Database/connection.php");
 
 if(isset($_COOKIE["cookie_username"])){
     $cookieUsername = $_COOKIE["cookie_username"];

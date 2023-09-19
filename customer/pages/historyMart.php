@@ -1,4 +1,6 @@
 <?php
+session_start();
+$logged_customer = $_SESSION["session_customerid"];
 include('../../Database/connection.php');
 ?>
 
@@ -11,8 +13,8 @@ include('../../Database/connection.php');
     join merchant m on oi.merchant_id = m.merchant_id 
     JOIN order_item_detail oid ON oi.order_itemid = oid.order_itemid
     JOIN item i ON oid.item_id = i.item_id
-    where oi.customer_id = 'CS001' 
-    GROUP BY oi.customer_id
+    where oi.customer_id = '$logged_customer' 
+    GROUP BY oi.order_itemid
     limit 0, 7;";
     $res = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($res)) :
