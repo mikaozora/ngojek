@@ -16,7 +16,7 @@ body {
   background-color: var(--text-white);
   padding: 1.5rem 1.5rem 2.5rem 1.5rem;
   position: fixed;
-  min-height: 100%;
+  height: 100%;
 }
 
 .content-sidebar{
@@ -24,6 +24,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.bottom-sidebar{
+  margin-bottom: 18%;
 }
 
 .sidebar-wrapper .logo{
