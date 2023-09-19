@@ -28,15 +28,24 @@ body {
     padding: 1.5rem;
 }
 .header{ 
-    display:flex;
-    flex-direction: row; 
+    height: 5%;
+    display: flex;
+    justify-content: start;
+    align-items:center;
+    font-family: "poppins";
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.header .right{
+    width: 40%;
+    height: 100%;
+    display: flex;
     align-items: center;
-    height:12%; 
-    width: 100%; 
+    justify-content: end;
 }
 .back{
-    height: 100%; 
-    width: 30%;
+    height: 100%;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,10 +77,13 @@ body {
     width: 40%;
     display: flex ;
     justify-content: start;
+    align-items: center;
 }
-.header_name h5{
-    font-family: "poppins";
-    font-size: 20px;
+.header_name h3{
+    font-family: "Poppins";
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-black);
 }
 .image_cart{ 
     width: 30%;
@@ -89,8 +101,7 @@ body {
 }
 
 .mart_name{
-    /* height: 80%;
-    width: 100%; */
+    font-family: "poppins";
 }
 
 .mart_name a{
@@ -101,9 +112,10 @@ body {
 
 .mart_list{ 
     display: flex;
-    flex-direction: row;
-    font-family: "poppins";
-    font-size: 15px;   
+    align-items: center;
+    border-bottom: 1px solid rgba(12, 67, 52, 0.2);
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
 }
 .image_container{ 
     height: 100px;
@@ -113,24 +125,28 @@ body {
     justify-content: center;
 }
 
-.line-spacing{ 
-    height: 1px;
-    width: 100%;
-    border-radius: 10px;
-    background-color: rgb(219, 219, 219);
-    box-sizing: border-box;
-}
-.mart_desc h4{ 
-    margin : 20px 0px 8px 0px;
+.mart_desc h3{ 
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--text-black);
+    margin-bottom: 0.5rem;
 }
 .mart_desc p{
-    margin: 5px 0px 5px 0px;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-black);
+    margin-bottom: 0px;
 }
 
 .image_container img{ 
-    height: 3.5rem; 
-    width: 3.5rem; 
-    border-radius: 10px;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    margin-right: 1rem;
 }
 
 .modal-dialog{

@@ -27,15 +27,27 @@ body {
   padding: 1.5rem;
 }
 
+.back{
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .wrap-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   font-family: "poppins";
   margin-bottom: 1rem;
 }
 
 .wrap-header .left {
-  display: flex;
+  height:100%;
+  width: 50%;
+  display: flex ;
+  justify-content: start;
   align-items: center;
 }
 
@@ -51,6 +63,13 @@ body {
   font-weight: 500;
   color: var(--text-black);
   margin-bottom: 0;
+}
+.right{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 .wrap-content {
