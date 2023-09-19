@@ -79,7 +79,7 @@ if (isset($_POST["delete"])) {
                         <h3>Total Price</h3>
                         <h3 class="tp">Rp<?= number_format($total, 0, ',', '.') ?></h3>
                     </div>
-                    <form action="gotdrivermart.php" method="post">
+                    <form action="gotdriverfood.php" method="post">
                         <button class="btn-checkout" type="submit" name="checkout">Check out</button>
                     </form>
                 </div>

@@ -101,6 +101,23 @@ body {
     color: var(--text-white);
 }
 
+.subscribe-free {
+    height: auto;
+    width: 125px;
+    margin-top: 16px;
+    padding: 4px 20px 4px 20px;
+    background-color: var(--bg-grey);
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    margin: 0;
+    font-family: "poppins";
+    font-size: 16px;
+    font-weight: 200;
+    color: var(--text-black);
+}
+
 .profile {
     padding-top: 16px;
 }

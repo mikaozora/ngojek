@@ -1,6 +1,6 @@
-<?php 
+<!-- <?php 
 include('../customer/action/login.php');
-?>
+?> -->
 
 
 <!DOCTYPE html>

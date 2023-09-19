@@ -34,14 +34,22 @@ $row = mysqli_fetch_assoc($res);
                 <div class="avatar"></div>
                 <h1><?= $row["name"] ?></h1>
                 <div class="<?php
-                            if ($_COOKIE["cookie_subscribe"] == "Gold") {
-                                echo "subscribe-gold";
-                            } elseif ($_COOKIE["cookie_subscribe"] == "Platinum") {
-                                echo "subscribe-Platinum";
-                            } else {
-                                echo "subscribe-immortal";
-                            }; ?>">
-                    <?php echo $_COOKIE["cookie_subscribe"] ?>
+                            if (isset($_COOKIE["cookie_subscribe"])) {
+                                if ($_COOKIE["cookie_subscribe"] == "Gold") {
+                                    echo "subscribe-gold";
+                                } elseif ($_COOKIE["cookie_subscribe"] == "Platinum") {
+                                    echo "subscribe-Platinum";
+                                } elseif ($_COOKIE["cookie_subscribe"] == "Immortal") {
+                                    echo "subscribe-immortal";
+                                }
+                            }else{
+                                echo "subscribe-free";
+                            } ?>">
+                    <?php if (isset($_COOKIE["cookie_subscribe"])) {
+                        echo $_COOKIE["cookie_subscribe"];
+                    }else{
+                        echo "Free";
+                    } ?>
                 </div>
             </div>
 
