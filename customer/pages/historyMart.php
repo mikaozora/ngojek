@@ -10,9 +10,9 @@ include('../../Database/connection.php');
 <body>
     <?php
     $sql = "select m.name, SUM(i.price*oid.quantity) AS total, GROUP_CONCAT(i.name SEPARATOR ',') AS product from order_item oi 
-    join merchant m on oi.merchant_id = m.merchant_id 
     JOIN order_item_detail oid ON oi.order_itemid = oid.order_itemid
     JOIN item i ON oid.item_id = i.item_id
+    join merchant m on i.merchant_id = m.merchant_id 
     where oi.customer_id = '$logged_customer' 
     GROUP BY oi.order_itemid
     limit 0, 7;";
