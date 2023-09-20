@@ -31,12 +31,8 @@ $res = mysqli_query($conn, $sql);
     <div class="kontainer">
         <div class="device">
             <div class="wrap-header">
-                <div class="back">
-                    <a href="home.php">
-                    <a href="home.php"><img src="../assets/arrow-left.svg" alt=""></a>  
-                    </a>    
-                </div>
                 <div class="left">
+                    <a href="home.php"><img src="../assets/arrow-left.svg" alt=""></a>
                     <h3>Mart</h3>
                 </div>
                 <div class="right">
