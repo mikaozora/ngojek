@@ -284,6 +284,61 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+.ongkir{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'poppins';
+  margin-bottom: .5rem;
+}
+.ongkir .promo{
+  display: flex;
+  align-items: center;
+}
+
+.ongkir .promo s{
+  margin-right: .2rem;
+}
+.ongkir h5{
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.ongkir p{
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.fee{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'poppins';
+  margin-bottom: .5rem;
+}
+
+.fee h5{
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.fee p{
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.sub-total{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'poppins';
+  margin-bottom: .5rem;
+}
+
+.sub-total h5{
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.sub-total p{
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
 
 .total-price {
   display: flex;

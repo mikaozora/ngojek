@@ -1,16 +1,32 @@
 <?php
 
 session_start();
+include("../../Database/connection.php");
 // var_dump($_SESSION["cart"]);
 $total = 0;
 
 if (isset($_POST["delete"])) {
-    foreach($_SESSION["cart"] as $key => $value){
-        if($value["item_id"] == $_POST["item_id"]){
+    foreach ($_SESSION["cart"] as $key => $value) {
+        if ($value["item_id"] == $_POST["item_id"]) {
             unset($_SESSION["cart"][$key]);
         }
     }
 }
+$ongkir = 0;
+
+$customer_id = $_SESSION["customer_id"];
+
+$sql_cust = "select s.subscription_id, s.description from customers c join subscription s on c.subscription_id = s.subscription_id where customer_id = '$customer_id'";
+$res_cust = mysqli_query($conn, $sql_cust);
+$row_cust = mysqli_fetch_assoc($res_cust);
+$current_subsId = "";
+$potongan = "";
+if (!empty($row_cust["subscription_id"]) && !empty($row_cust["description"])) {
+    $current_subsId = $row_cust["subscription_id"];
+    $potongan = $row_cust["description"];
+}
+
+$ongkir = rand(20000, 40000);
 
 ?>
 
@@ -74,12 +90,40 @@ if (isset($_POST["delete"])) {
                         </div>
                     </div>
                 </div>
-                <div class="wrap-bot"> 
+                <div class="wrap-bot">
+                    <div class="sub-total">
+                        <h5>Sub Total</h5>
+                        <p>Rp<?= number_format($total, 0, ',', '.') ?></p>
+                    </div>
+                    <div class="ongkir">
+                        <h5>Shipment Fee</h5>
+                        <div class="promo">
+                            <?php
+                            $formatOngkir = "Rp" . number_format($ongkir, 0, ',', '.');
+                            $formatPromo = "";
+                            if ($current_subsId) {
+                                echo "<s>$formatOngkir</s>";
+                                $ongkir = $ongkir - $potongan;
+                                $formatPromo = "Rp" . number_format($ongkir, 0, ',', '.');
+                                echo "<p>$formatPromo</p>";
+                            } else {
+                                echo "<p>$formatOngkir</p>";
+                            }
+                            $total = $total + $ongkir + 2000;
+                            ?>
+                        </div>
+
+                    </div>
+                    <div class="fee">
+                        <h5>Application Fee</h5>
+                        <p>Rp<?= number_format(2000, 0, ',', '.') ?></p>
+                    </div>
                     <div class="total-price">
                         <h3>Total Price</h3>
                         <h3 class="tp">Rp<?= number_format($total, 0, ',', '.') ?></h3>
                     </div>
                     <form action="gotdrivermart.php" method="post">
+                        <input type="hidden" name="ongkir" value="<?= $ongkir ?>">
                         <button class="btn-checkout" type="submit" name="checkout">Check out</button>
                     </form>
                 </div>

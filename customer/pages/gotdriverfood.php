@@ -8,6 +8,7 @@ include("../../Database/connection.php");
     }
 
     $randNum = rand(0, sizeof($arraydriver) - 1);
+    $ongkir = $_POST["ongkir"];
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +51,7 @@ include("../../Database/connection.php");
                         <input type="hidden" name="driverid" value="<?= $arraydriver[$randNum]["driver_id"] ?>">
                     </div>
                     <div class="btn-kontainer">
+                    <input type="hidden" name="ongkir" value="<?= $ongkir ?>">
                         <button type="submit" class="finish-btn" name="submitFood">Finish Transaction</button>
                     </div>
                 </form>

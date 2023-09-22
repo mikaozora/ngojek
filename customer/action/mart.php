@@ -7,12 +7,12 @@ if (isset($_POST["submitMart"])) {
     $merchant_id = $_SESSION["session_merchant_id"];
     $customer_id = $_SESSION["session_customerid"];
     $driver_id = $_POST["driverid"]; 
-    
+    $ongkir = $_POST["ongkir"];
 
     $sql_orderitem = "";
     $res_orderitem = "";
     try {
-        $sql_orderitem = "insert into order_item values('$order_itemid', '$driver_id', '$customer_id', '$merchant_id', NOW())";
+        $sql_orderitem = "insert into order_item values('$order_itemid', '$driver_id', '$customer_id', NOW(), $ongkir)";
         $res_orderitem = mysqli_query($conn, $sql_orderitem);
     } catch (mysqli_sql_exception $e) {
         print_r($e); 

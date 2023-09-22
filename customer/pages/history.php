@@ -4,6 +4,7 @@ include("../../Database/connection.php");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@ include("../../Database/connection.php");
     <link rel="stylesheet" href="../style/history.css">
     <title>History</title>
 </head>
+
 <body>
     <div class="kontainer">
         <div class="device">
@@ -22,19 +24,19 @@ include("../../Database/connection.php");
                 <h3>Transaction History</h3>
             </div>
             <div class="wrap-tab">
-                <a href="?history=ride"><button class="btn btn-primary mr-1 <?= $_GET["history"] == "ride" ? : "off"; ?>">Ride</button></a>
-                <a href="?history=mart"><button class="btn btn-primary mr-1 <?= $_GET["history"] == "mart" ? : "off"; ?>">Mart</button></a>
-                <a href="?history=sent"><button class="btn btn-primary mr-1 <?= $_GET["history"] == "sent" ? : "off"; ?>">Sent</button></a>
-                <a href="?history=food"><button class="btn btn-primary <?= $_GET["history"] == "food" ? : "off"; ?>">Food</button></a>
+                <a href="?history=ride"><button class="btn btn-primary mr-1 <?= $_GET["history"] == "ride" ?: "off"; ?>">Ride</button></a>
+                <a href="?history=mart"><button class="btn btn-primary mr-1 <?= $_GET["history"] == "mart" ?: "off"; ?>">Mart</button></a>
+                <a href="?history=sent"><button class="btn btn-primary mr-1 <?= $_GET["history"] == "sent" ?: "off"; ?>">Sent</button></a>
+                <a href="?history=food"><button class="btn btn-primary <?= $_GET["history"] == "food" ?: "off"; ?>">Food</button></a>
             </div>
             <?php
-            if($_GET["history"] == "ride"){
+            if ($_GET["history"] == "ride") {
                 include("historyRide.php");
-            }elseif($_GET["history"] == "mart"){
+            } elseif ($_GET["history"] == "mart") {
                 include("historyMart.php");
-            }elseif($_GET["history"] == "sent"){
+            } elseif ($_GET["history"] == "sent") {
                 include("historySent.php");
-            }elseif($_GET["history"] == "food"){
+            } elseif ($_GET["history"] == "food") {
                 include("historyFood.php");
             }
             ?>
@@ -42,4 +44,5 @@ include("../../Database/connection.php");
 
     </div>
 </body>
+
 </html>
