@@ -21,9 +21,9 @@ include('../../Database/connection.php');
     $type = $_GET['type'];
     if ($type == 'mart') {
 
-        $sql = "select o.order_itemid, d.name, d.number_plate, m.name as menuname from order_item o join driver d join customers c join merchant m on o.driver_id = d.driver_id and o.customer_id = c.customer_id and m.merchant_id = o.merchant_id where c.customer_id = '$logged_customer' and o.order_itemid = '$_GET[id]'";
+        $sql = "select distinct o.order_itemid, d.name, d.number_plate, m.name as menuname from order_item o join driver d join customers c join merchant m join item i join order_item_detail oid on o.driver_id = d.driver_id and o.customer_id = c.customer_id and m.merchant_id = i.merchant_id and oid.item_id = i.item_id and oid.order_itemid = o.order_itemid where c.customer_id = '$logged_customer' and o.order_itemid = '$_GET[id]'";
     } else {
-        $sql = "select o.order_menuid, d.name, d.number_plate, m.name as menuname from order_menu o join driver d join customers c join merchant m on o.driver_id = d.driver_id and o.customer_id = c.customer_id and m.merchant_id = o.merchant_id where c.customer_id = '$logged_customer' and o.order_menuid = '$_GET[id]'";
+        $sql = "select distinct o.order_menuid, d.name, d.number_plate, m.name as menuname from order_menu o join driver d join customers c join merchant m join menu men join order_menu_detail omd on o.driver_id = d.driver_id and o.customer_id = c.customer_id and m.merchant_id = men.merchant_id and men.menu_id = omd.menu_id and omd.order_menuid = o.order_menuid where c.customer_id = '$logged_customer' and o.order_menuid = '$_GET[id]'";
     }
     $res = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($res)) :
@@ -66,13 +66,14 @@ include('../../Database/connection.php');
             <?php
                 $total = 0;
                 if ($type == 'mart') {
-                    $sql = "select i.name, oid.quantity, i.price from item i join order_item_detail oid join order_item oi join customers c on c.customer_id = oi.customer_id and i.item_id = oid.item_id and oid.order_itemid = oi.order_itemid where c.customer_id = '$logged_customer' and oi.order_itemid = '$_GET[id]'";
+                    $sql = "select i.name, oid.quantity, i.price, oi.ongkir as ongkir from item i join order_item_detail oid join order_item oi join customers c on c.customer_id = oi.customer_id and i.item_id = oid.item_id and oid.order_itemid = oi.order_itemid where c.customer_id = '$logged_customer' and oi.order_itemid = '$_GET[id]'";
                 } else {
-                    $sql = "select i.name, oid.quantity, i.price from menu i join order_menu_detail oid join order_menu oi join customers c on c.customer_id = oi.customer_id and i.menu_id = oid.menu_id and oid.order_menuid = oi.order_menuid where c.customer_id = '$logged_customer' and oi.order_menuid = '$_GET[id]'";
+                    $sql = "select i.name, oid.quantity, i.price, oi.ongkir as ongkir from menu i join order_menu_detail oid join order_menu oi join customers c on c.customer_id = oi.customer_id and i.menu_id = oid.menu_id and oid.order_menuid = oi.order_menuid where c.customer_id = '$logged_customer' and oi.order_menuid = '$_GET[id]'";
                 }
                 $res = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($res)) :
                     $total += ($row["quantity"] * $row["price"]);
+                    $ongkir = $row["ongkir"];
             ?>
 
             <div class="d-flex justify-content-between mb-1">
@@ -100,14 +101,14 @@ include('../../Database/connection.php');
 
                 <div class="d-flex justify-content-between">
                     <p>Shipment Fee</p>
-                    <span>2.000,00</span>
+                    <span><?=number_format($ongkir, 2, ',', '.');?></span>
                 </div>
 
             </div>
                     
             <div class="d-flex justify-content-between mt-4">
                 <h2 class="h5">Grand Total</h2>
-                <span class="font-weight-bold" style="font-size: 1rem;"><?= number_format($total + 4000, 2, ',', '.'); ?></span>
+                <span class="font-weight-bold" style="font-size: 1rem;"><?= number_format($total + $ongkir + 2000, 2, ',', '.'); ?></span>
             </div>
             </div>
         </div>
