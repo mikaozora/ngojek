@@ -8,7 +8,7 @@ $logged_customer = $_SESSION["session_customerid"];
 
 <body>
     <?php
-    $sql = "SELECT m.name, SUM(mn.price*omd.quantity) as total, GROUP_CONCAT(mn.name SEPARATOR ',') AS product, om.order_menuid FROM order_menu om
+    $sql = "SELECT om.order_menuid, m.name, SUM(mn.price*omd.quantity) as total, GROUP_CONCAT(mn.name SEPARATOR ',') AS product, om.order_menuid FROM order_menu om
     JOIN order_menu_detail omd ON om.order_menuid = omd.order_menuid
     JOIN menu mn ON omd.menu_id = mn.menu_id
     JOIN merchant m ON mn.merchant_id = m.merchant_id

@@ -55,7 +55,7 @@ if(isset($_POST["subscribe"])){
                         <ul>
                             <li>No more busy hour fee</li>
                             <li>Extra discount for selected restos</li>
-                            <li>Discount <?= substr($row["description"], 12) ?> for delivery shipping</li>
+                            <li>Discount Rp<?= number_format($row["description"], 0, ',', '.') ?> for delivery shipping</li>
                         </ul>
                         <h6>Must Knows</h6>
                         <ul>
